@@ -1,11 +1,19 @@
 import java.util.Random;
 public class TesteVetorDInamico {
     public static void main(String[] args) throws Exception{
-        var teste = new VetorDinamico(8);
+        var teste = new VetorDinamico(4);
         var gerador = new Random();
         while (true) {
             var valor = gerador.nextInt(10) + 1;
-            teste.adicionar(valor);
+            var oQueFazer = gerador.nextDouble();
+            if(oQueFazer <= 0.4){
+                System.out.println("Removendo...");
+                teste.remover();
+            }
+            else{
+                System.out.println("Adicionando...");
+                teste.adicionar(valor);
+            }
             System.out.println(teste);
             System.out.println("=============================");
             Thread.sleep(5000);
